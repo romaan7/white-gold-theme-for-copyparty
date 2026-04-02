@@ -1,0 +1,749 @@
+/* ============================================================
+   copyparty custom theme: warm monochrome professional
+   zinc greys + warm white-gold accent
+   emoji → Font Awesome replacements
+
+   Usage:
+     copyparty \
+       --html-head '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">' \
+       --js-browser /path/to/white-gold.js \
+       --css-browser /path/to/white-gold.css
+   ============================================================ */
+
+
+/* =====================================================
+   COLOR SCHEME: Zinc + Warm White-Gold accent
+   Accent palette:
+     gold-100  #f5e6c8  (lightest hover)
+     gold-200  #e2c792  (primary accent)
+     gold-300  #c9a96c  (borders, active)
+     gold-400  #a8884d  (muted/dark)
+     gold-500  #8a6d35  (subtle)
+   ===================================================== */
+
+html#ht_brw,
+html#ht_brw.a, html#ht_brw.az, html#ht_brw.ay,
+html#ht_brw.b, html#ht_brw.bz, html#ht_brw.by,
+html#ht_brw.c, html#ht_brw.cz, html#ht_brw.cy,
+html#ht_brw.d, html#ht_brw.dz, html#ht_brw.dy,
+html#ht_brw.e, html#ht_brw.ez, html#ht_brw.ey,
+html#ht_brw.y, html#ht_brw.z {
+    /* --- Text --- */
+    --fg: #d4d4d8;                  /* zinc-300 */
+    --fg-max: #fafafa;              /* zinc-50  */
+    --fg2-max: #fafafa;
+    --fg-weak: #a1a1aa;             /* zinc-400 */
+
+    /* --- Backgrounds --- */
+    --bg-max: #09090b;              /* zinc-950 */
+    --bg-d3: #0a0a0c;
+    --bg-d2: #0f0f11;
+    --bg-d1: #131315;
+    --bg: #18181b;                  /* zinc-900 */
+    --bgg: var(--bg);
+    --bg-u1: #1e1e22;
+    --bg-u2: #27272a;              /* zinc-800 */
+    --bg-u3: #303034;
+    --bg-u4: #3f3f46;              /* zinc-700 */
+    --bg-u5: #52525b;              /* zinc-600 */
+    --bg-u6: #5a5a63;
+
+    /* --- Accent (warm white-gold) --- */
+    --a: #e2c792;                   /* gold-200: links, icons, labels */
+    --a-b: #c9a96c;                 /* gold-300: borders, active underline */
+    --a-hil: #f5e6c8;              /* gold-100: hover highlight */
+    --a-dark: #a8884d;              /* gold-400: muted accent */
+    --a-gray: #52525b;              /* zinc-600 */
+
+    /* --- Alternating / highlight --- */
+    --tab-alt: #c9a96c;            /* gold-300 */
+    --row-alt: #1c1c20;
+
+    /* --- Scrollbar --- */
+    --scroll: #8a6d35;              /* gold-500: subtle */
+
+    /* --- Selection --- */
+    --sel-fg: #fafafa;
+    --sel-bg: #3f3f46;              /* zinc-700 */
+
+    /* --- Buttons --- */
+    --btn-fg: #d4d4d8;             /* zinc-300: default text */
+    --btn-bg: rgba(113, 113, 122, 0.12);
+    --btn-h-fg: #f5e6c8;           /* gold-100: hover text */
+    --btn-h-bg: #2a2520;           /* warm dark bg on hover */
+    --btn-1-fg: #18181b;           /* zinc-900: dark text on gold */
+    --btn-1-bg: #e2c792;           /* gold-200: toggled-on bg */
+    --btn-1h-fg: #18181b;
+    --btn-1h-bg: #f5e6c8;          /* gold-100: toggled-on hover */
+    --chk-fg: #e2c792;             /* gold-200 */
+    --txt-sh: var(--bg-d2);
+    --txt-bg: var(--btn-bg);
+
+    /* --- Button borders & shadows --- */
+    --btn-bb: 1px solid #3f3f46;
+    --btn-bs: 0 0 0.2em rgba(0, 0, 0, 0.2);
+    --btn-h-bs: 0 0 0.4em rgba(226, 199, 146, 0.15);
+    --btn-h-bb: 1px solid #8a6d35;
+    --btn-1-bb: 1px solid #c9a96c;
+    --btn-1-bs: 0 0 0.3em rgba(226, 199, 146, 0.2);
+    --btn-1h-bs: 0 0 0.4em rgba(226, 199, 146, 0.25);
+    --btn-1h-bb: 1px solid #e2c792;
+
+    /* --- Toolbar active --- */
+    --op-aa-fg: #f5e6c8;           /* gold-100 */
+    --op-aa-bg: #0f0f11;
+    --op-a-sh: rgba(0, 0, 0, 0.5);
+    --op-aa-sh: 0 0 0.3em rgba(226, 199, 146, 0.15) inset;
+
+    /* --- Upload panel --- */
+    --u2-btn-b1: #52525b;
+    --u2-sbtn-b1: #52525b;
+    --u2-txt-bg: var(--bg-u3);
+    --u2-tab-bg: linear-gradient(to bottom, var(--bg), var(--bg-u1));
+    --u2-tab-b1: rgba(113, 113, 122, 0.4);
+    --u2-tab-1-fg: #f5e6c8;        /* gold-100 */
+    --u2-tab-1-bg: linear-gradient(to bottom, #252018, var(--bg) 80%);
+    --u2-tab-1-b1: #c9a96c;
+    --u2-tab-1-b2: #a8884d;
+    --u2-tab-1-sh: #8a6d35;
+    --u2-b-fg: #fafafa;
+    --u2-b1-bg: #52525b;           /* primary action */
+    --u2-b2-bg: #71717a;           /* secondary action */
+    --u2-inf-bg: #27272a;          /* info */
+    --u2-inf-b1: #71717a;
+    --u2-ok-bg: #14532d;           /* green-900 — success */
+    --u2-ok-b1: #4ade80;           /* green-400 */
+    --u2-err-bg: #7f1d1d;          /* red-900 — error */
+    --u2-err-b1: #f87171;          /* red-400 */
+    --ud-b1: #52525b;
+
+    /* --- Sort indicators --- */
+    --sort-1: #e2c792;             /* gold-200 */
+    --sort-2: #a8884d;             /* gold-400 */
+
+    /* --- File sizes (grey gradient, larger = brighter) --- */
+    --sz-b: #71717a;               /* zinc-500: bytes */
+    --sz-k: #a1a1aa;               /* zinc-400: KB */
+    --sz-m: #d4d4d8;               /* zinc-300: MB */
+    --sz-g: #e2c792;               /* gold-200: GB (stands out) */
+    --sz-t: #f5e6c8;               /* gold-100: TB */
+    --sz-p: var(--sz-t);
+
+    /* --- Server info --- */
+    --srv-1: #a1a1aa;
+    --srv-2: #e2c792;              /* gold-200 */
+    --srv-3: #c9a96c;              /* gold-300 */
+    --srv-3b: rgba(201, 169, 108, 0.6);
+
+    /* --- Tree / sidebar --- */
+    --tree-bg: #1e1e22;
+
+    /* --- Grid view --- */
+    --g-play-bg: #2a2520;
+    --g-play-b1: #c9a96c;
+    --g-play-b2: #e2c792;
+    --g-play-sh: #8a6d35;
+    --g-sel-fg: #fafafa;
+    --g-sel-bg: #3f3f46;
+    --g-sel-b1: #71717a;
+    --g-sel-sh: #52525b;
+    --g-fsel-bg: #52525b;
+    --g-fsel-b1: #71717a;
+    --g-fsel-ts: #27272a;
+    --g-dfg: #c9a96c;
+    --g-fg: #fafafa;
+    --g-bg: var(--bg-u2);
+    --g-b1: var(--bg-u4);
+    --g-b2: var(--bg-u5);
+    --g-g1: var(--bg-u2);
+    --g-g2: var(--bg-u5);
+    --g-f-bg: var(--bg-u4);
+    --g-f-b1: var(--bg-u5);
+    --g-f-fg: #fafafa;
+    --g-sh: rgba(0, 0, 0, 0.3);
+
+    /* --- File list --- */
+    --f-sh1: 0.2;
+    --f-sh2: 0.02;
+    --f-sh3: 0.12;
+    --f-h-b1: rgba(226, 199, 146, 0.2);
+    --f-play-bg: #e2c792;          /* gold-200 */
+    --f-play-fg: #18181b;          /* dark text on gold */
+    --f-sel-sh: #c9a96c;
+    --f-gray: #52525b;
+
+    --fm-off: #c9a96c;
+    --mp-sh: var(--bg-d3);
+    --mp-b-bg: rgba(0, 0, 0, 0.2);
+
+    /* --- Errors (keep semantic colors) --- */
+    --err-fg: #fafafa;
+    --err-bg: #7f1d1d;             /* red-900 */
+    --err-b1: #f87171;             /* red-400 */
+    --err-ts: #450a0a;
+}
+
+
+/* =====================================================
+   FOCUS STATES — override hardcoded #fc0 in ui.css
+   ===================================================== */
+
+*:focus,
+*:focus+label,
+#pctl *:focus,
+.btn:focus {
+    box-shadow: 0 .1em .2em rgba(226, 199, 146, 0.3) inset;
+    outline: #c9a96c solid .1em;
+}
+
+
+/* =====================================================
+   ROW HOVER & FILE LIST POLISH
+   ===================================================== */
+
+/* enhanced row hover with warm tint */
+#files tbody tr:hover td,
+#files tbody tr:hover td+td {
+    background: #1e1d1b;
+    box-shadow: 0 1px 0 rgba(226, 199, 146, 0.1) inset,
+                0 -1px 0 rgba(226, 199, 146, 0.1) inset;
+}
+
+/* filenames brighter than metadata */
+#files tbody td:first-child a {
+    color: #fafafa;
+}
+#files tbody td:first-child a:hover {
+    color: #f5e6c8;
+}
+
+/* dates and metadata slightly dimmer */
+#files tbody td:last-child {
+    color: #a1a1aa;
+}
+
+/* toolbar stands out from background */
+#ops {
+    background: #1e1e22;
+    border-bottom: 1px solid #2a2520;
+}
+
+
+/* =====================================================
+   GLOBAL: FA icon defaults inside copyparty elements
+   ===================================================== */
+
+i.fa-solid {
+    vertical-align: middle;
+    line-height: 1;
+}
+
+/* prevent #path i chevron styles from hitting FA icons */
+#path i.fa-solid,
+#treeh i.fa-solid,
+#op_cfg i.fa-solid,
+#op_up2k i.fa-solid,
+#op_player i.fa-solid,
+#wtoggle i.fa-solid,
+#pctl i.fa-solid,
+.dropdesc i.fa-solid {
+    transform: none;
+    border: none;
+    background: none;
+    width: auto;
+    height: auto;
+    margin: 0;
+    display: inline;
+}
+
+
+/* =====================================================
+   TOP TOOLBAR (#ops)
+   ===================================================== */
+
+#ops {
+    display: flex;
+    align-items: stretch;
+    gap: 0.2em;
+    padding: 0.4em 0.6em;
+}
+
+#ops a {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4em 0.65em;
+    min-width: 3.2em;
+    border-radius: 0.3em;
+    transition: background 0.15s, color 0.15s;
+    text-decoration: none;
+    color: var(--a);
+    gap: 0.15em;
+}
+#ops a:hover {
+    background: var(--bg-u3);
+    color: var(--a-hil);
+}
+#ops a.act {
+    background: var(--op-aa-bg);
+    color: var(--op-aa-fg);
+    border-radius: 0.3em 0.3em 0 0;
+    border-bottom: 2px solid var(--a-b);
+}
+#ops a i.fa-solid {
+    font-size: 1.1rem;
+}
+#ops a .toolbar-label {
+    font-family: var(--font-main);
+    font-size: 0.6rem;
+    opacity: 0.7;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    line-height: 1;
+}
+#ops a svg {
+    display: none;
+}
+
+/* hide close button */
+#opa_x {
+    display: none;
+}
+/* settings pushed right */
+#opa_cfg {
+    margin-left: auto;
+}
+
+@media (max-width: 50em) {
+    #ops a .toolbar-label { display: none; }
+    #ops a { min-width: 2.2em; padding: 0.4em; }
+}
+@media (max-width: 35em) {
+    #ops { gap: 0; padding: 0.3em; }
+    #ops a { min-width: 1.8em; padding: 0.3em; }
+}
+
+
+/* =====================================================
+   BREADCRUMB / PATH BAR (#path)
+   ===================================================== */
+
+#entree i.fa-solid {
+    font-size: 1.2em;
+}
+
+#path span {
+    opacity: 0.4;
+}
+
+
+/* =====================================================
+   SIDEBAR / NAVPANE (#treeh)
+   ===================================================== */
+
+#treeh a i.fa-solid {
+    font-size: 0.85em;
+}
+#treeh a {
+    transition: color 0.15s;
+}
+#treeh a:hover {
+    color: var(--a-hil);
+}
+
+
+/* =====================================================
+   BOTTOM BAR / WIDGET (#wtoggle)
+   ===================================================== */
+
+#wtoggle a i.fa-solid {
+    font-size: 0.9em;
+    margin-right: 0.15em;
+}
+#wtoggle a {
+    transition: color 0.15s, background 0.15s;
+}
+#wtoggle a:hover {
+    color: var(--a-hil);
+}
+
+
+/* =====================================================
+   MEDIA PLAYER CONTROLS (#pctl)
+   ===================================================== */
+
+#pctl a i.fa-solid {
+    font-size: 1em;
+}
+#pctl a {
+    transition: color 0.15s;
+}
+#pctl a:hover {
+    color: var(--a-hil);
+}
+
+
+/* =====================================================
+   SETTINGS PANEL (op_cfg)
+   ===================================================== */
+
+#op_cfg .tgl.btn i.fa-solid {
+    font-size: 0.85em;
+    margin-right: 0.2em;
+}
+
+
+/* =====================================================
+   UPLOAD PANEL (op_up2k)
+   ===================================================== */
+
+#u2conf label i.fa-solid {
+    font-size: 1.4em;
+    color: var(--a);
+}
+
+/* overwrite mode button */
+label[for="u2ow"] i.fa-solid {
+    font-size: 1.4em;
+}
+
+#upnag i.fa-solid,
+#upsfx i.fa-solid {
+    font-size: 0.9em;
+}
+
+/* drop zone FA icons */
+.dropdesc i.fa-solid {
+    font-size: 1em;
+    margin: 0 0.2em;
+}
+
+
+/* =====================================================
+   PLAYER PANEL (op_player)
+   ===================================================== */
+
+#op_player .tgl.btn i.fa-solid,
+#op_player a i.fa-solid {
+    font-size: 0.85em;
+    margin-right: 0.15em;
+}
+
+
+/* =====================================================
+   SUBMENU FORM ICONS (mkdir, new file, message)
+   ===================================================== */
+
+.form-icon i.fa-solid {
+    font-size: 1.1em;
+    margin-right: 0.3em;
+    opacity: 0.8;
+}
+
+
+/* =====================================================
+   UPLOAD BUTTON SPINNER (#u2bm)
+   ===================================================== */
+
+#u2bm i.fa-solid {
+    font-size: 1.5em;
+    margin-right: 0.3em;
+}
+
+
+/* =====================================================
+   SEARCH LABEL
+   ===================================================== */
+
+label[for="fsearch"] i.fa-solid {
+    font-size: 1em;
+}
+
+
+/* =====================================================
+   #1 — BOTTOM ACTION BAR (unified style)
+   ===================================================== */
+
+/* bottom bar container — cleaner background */
+#wtoggle,
+#widgeti {
+    background: #1e1e22;
+}
+
+/* make the toggle bar more visible with top border */
+#wtoggle {
+    border-radius: 0.4em 0 0 0;
+    box-shadow: 0 -1px 0 rgba(226, 199, 146, 0.1);
+}
+
+/* unified button style for bottom bar actions */
+#wtoggle a,
+#wfm a,
+#wzip a {
+    padding: 0.15em 0.35em;
+    border-radius: 0.2em;
+    transition: color 0.15s, background 0.15s;
+}
+#wtoggle a:hover,
+#wfm a:hover,
+#wzip a:hover {
+    background: rgba(226, 199, 146, 0.1);
+    color: #f5e6c8;
+}
+
+/* bottom bar label text */
+#wfm span,
+#wzip span {
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+/* footer navigation (control-panel / prev / up / next) */
+#wfp {
+    padding: 1.2em 0;
+    margin-top: 1em;
+    border-top: 1px solid #27272a;
+    text-align: center;
+}
+#wfp a {
+    padding: 0.4em 0.8em;
+    border-radius: 0.3em;
+    transition: background 0.15s, color 0.15s;
+    color: var(--a);
+}
+#wfp a:hover {
+    background: #27272a;
+    color: #f5e6c8;
+}
+/* divider between control-panel and prev/up/next */
+#goh+span {
+    color: #52525b;
+    border-left-color: #3f3f46;
+}
+#goh+span a {
+    color: #a1a1aa;
+}
+#goh+span a:hover {
+    color: #f5e6c8;
+}
+
+
+/* =====================================================
+   #2 — TABLE ROW SPACING & SEPARATORS
+   ===================================================== */
+
+/* more breathing room in cells */
+#files td {
+    padding: 0.45em 0.7em;
+}
+#files thead th {
+    padding: 0.5em 0.7em;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    color: #a1a1aa;
+    border-bottom: 1px solid #3f3f46;
+}
+
+/* sort indicators — FA solid arrows instead of ⌄/⌃ */
+.s0:after,
+.s1:after {
+    content: '\f0d7';              /* fa-caret-down */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.65em;
+    margin-left: 0.35em;
+    vertical-align: middle;
+}
+.s0r:after,
+.s1r:after {
+    content: '\f0d8';              /* fa-caret-up */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 0.65em;
+    margin-left: 0.35em;
+    vertical-align: middle;
+}
+.s0:after,
+.s0r:after {
+    color: #e2c792;                /* gold-200 — primary sort */
+}
+.s1:after,
+.s1r:after {
+    color: #a8884d;                /* gold-400 — secondary sort */
+}
+
+/* subtle row separators */
+#files tbody tr td {
+    border-bottom: 1px solid rgba(63, 63, 70, 0.4);
+}
+
+/* softer alternating rows */
+#files tr:nth-child(2n) td {
+    background: #1a1a1e;
+}
+
+/* column separators — lighter */
+#files td+td {
+    box-shadow: 1px 0 0 0 rgba(63, 63, 70, 0.4) inset;
+}
+#files tr:nth-child(2n+1) td+td {
+    box-shadow: 1px 0 0 0 rgba(63, 63, 70, 0.4) inset;
+}
+
+
+/* =====================================================
+   #3 — SIDEBAR POLISH
+   ===================================================== */
+
+/* sidebar header — cleaner */
+#treeh {
+    background: #1e1e22;
+    border-bottom: 1px solid #27272a;
+    padding: 0 0.3em;
+}
+
+/* tree control buttons — uniform style */
+#treeh a.btn {
+    font-size: 1em;
+    padding: 0.1em 0.4em;
+    border-radius: 0.2em;
+    color: #a1a1aa;
+    transition: color 0.15s, background 0.15s;
+}
+#treeh a.btn:hover {
+    color: #f5e6c8;
+    background: rgba(226, 199, 146, 0.08);
+}
+
+/* active toggle in sidebar */
+#treeh a.tgl.btn.on {
+    color: #18181b;
+    background: #e2c792;
+}
+
+/* tree links */
+#tree ul a {
+    transition: color 0.15s;
+}
+#tree ul a:hover {
+    color: #f5e6c8;
+}
+
+/* highlighted / current folder — subtle instead of solid gold */
+#tree ul a.hl {
+    color: #f5e6c8;
+    background: rgba(226, 199, 146, 0.15);
+    text-shadow: none;
+}
+
+/* sidebar background */
+#tree {
+    background: #18181b;
+}
+
+/* [root] input — remove dated border */
+#treeul input,
+#treepar input {
+    background: transparent;
+    border: 1px solid #3f3f46;
+    border-radius: 0.2em;
+    color: #e2c792;
+    padding: 0.15em 0.3em;
+}
+#treeul input:focus,
+#treepar input:focus {
+    border-color: #c9a96c;
+    outline: none;
+}
+
+/* expand/collapse markers — use disclosure style */
+.ntree a:first-child {
+    color: #52525b;
+    transition: color 0.15s;
+}
+.ntree a:first-child:hover {
+    color: #a1a1aa;
+}
+
+
+/* =====================================================
+   #4 — README CARD
+   ===================================================== */
+
+#epi.logue.mdo {
+    border: 1px solid #27272a;
+    border-radius: 0.5em;
+    padding: 1.5em 2em;
+    margin-top: 2em;
+    background: #1a1a1e;
+}
+
+/* README.md label */
+#epi.logue.mdo:before {
+    color: #71717a;
+    font-size: 0.8em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: -2.5em;
+    margin-bottom: 0.5em;
+    padding: 0.2em 0.6em;
+    background: #1a1a1e;
+    display: inline-block;
+    position: relative;
+    top: -0.5em;
+}
+
+/* README content typography */
+#epi.logue.mdo .mdo {
+    color: #d4d4d8;
+    line-height: 1.7em;
+}
+
+
+/* =====================================================
+   #6 — HEADER BAR (server info + account)
+   ===================================================== */
+
+/* server info bar — better spacing */
+#srv_info {
+    font-size: 0.75em;
+    color: #71717a;
+    letter-spacing: 0.02em;
+}
+#srv_info span {
+    color: #a1a1aa;
+}
+
+/* account/permissions bar */
+#acc_info {
+    font-size: 0.75em;
+}
+#acc_info > span:not([id]) {
+    color: #71717a;
+    letter-spacing: 0.02em;
+}
+
+/* logout link */
+#blogout {
+    color: #e2c792;
+    transition: color 0.15s;
+}
+#blogout:hover {
+    color: #f5e6c8;
+}
+
+/* permissions label — subtle badge style */
+#acc_info span.warn {
+    color: #c9a96c;
+    border-bottom-color: rgba(201, 169, 108, 0.3);
+}
+
+/* add a subtle bottom border to the header area */
+#srv_info,
+#acc_info {
+    padding-bottom: 0.4em;
+}
